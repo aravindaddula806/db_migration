@@ -1,9 +1,10 @@
 from pyspark.sql import SparkSession
 import os,datetime
-from configs import (host_name,port,dest_bucket_name,base_tgt_path,db_name,
-                     log_file_dir,excluded_tables,excluded_schemas)
+from configs import SPARK_JARS
+# (port,dest_bucket_name,base_tgt_path,db_name,
+#                      log_file_dir,excluded_tables,excluded_schemas)
 
-from Test_Files.log_writer import write_log
+# from Test_Files.log_writer import write_log
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -13,7 +14,7 @@ load_dotenv()
 
 access_key=os.getenv("ACCESS_KEY")
 secret_key=os.getenv("SECRET_KEY")
-spark_jars=os.getenv("SPARK_JARS")
+# spark_jars=os.getenv("SPARK_JARS")
 PG_USER=os.getenv("PG_USER")
 PG_PASSWD=os.getenv("PG_PASSWD")
 
@@ -22,7 +23,7 @@ print('spark session will start')
 
 spark = SparkSession.builder \
     .appName("Redgrape DB Migration") \
-    .config("spark.jars", spark_jars) \
+    .config("spark.jars", SPARK_JARS) \
     .config("spark.hadoop.fs.s3a.access.key", access_key) \
     .config("spark.hadoop.fs.s3a.secret.key", secret_key) \
     .config("spark.hadoop.mapreduce.fileoutputcommitter.algorithm.version", "2") \
@@ -49,7 +50,7 @@ print()
 
 ''' Fetch all the schemas and pass it into write s3 table function'''
 # bucket='s3a://dms-peripheral-applications-data/query_logs/emplog/'
-bucket = 's3a://dms-peripheral-applications-data/borrower_management/staging/lender_master_staging/'
+bucket = 's3a://dms-peripheral-applications-data/ofbiz_srifin/monitoring/form_submission/'
 
 read_from_s3(bucket)
 

@@ -1,3 +1,15 @@
+
+<!-- #Jars to download and place -->
+
+wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.3.4/hadoop-aws-3.3.4.jar ;
+wget https://jdbc.postgresql.org/download/postgresql-42.7.5.jar ;
+wget https://repo.maven.apache.org/maven2/org/apache/hadoop/hadoop-common/3.3.4/hadoop-common-3.3.4.jar;
+wget https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.12.262/aws-java-sdk-bundle-1.12.262.jar;
+
+
+cd redgrape_db_migration;touch .env
+place the credentials here
+<!-- Run inside container -->
 <!-- install libraries -->
 source /home/sparkuser/venv/bin/activate;
 pip install dotenv pyspark==3.5.5
@@ -24,13 +36,6 @@ pip install -e .
 
 3.create configs.py file and place all the configurations in it.
 
-
-<!-- #Jars to download and place -->
-
-wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.3.4/hadoop-aws-3.3.4.jar ;
-wget https://jdbc.postgresql.org/download/postgresql-42.7.5.jar ;
-wget https://repo.maven.apache.org/maven2/org/apache/hadoop/hadoop-common/3.3.4/hadoop-common-3.3.4.jar;
-wget https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.12.262/aws-java-sdk-bundle-1.12.262.jar;
 
 
 <!-- CRONTAB EXPRESSION -->
