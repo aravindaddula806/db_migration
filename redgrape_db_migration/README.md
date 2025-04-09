@@ -1,3 +1,8 @@
+<!-- install libraries -->
+source /home/sparkuser/venv/bin/activate;
+pip install dotenv pyspark==3.5.5
+
+
 # redgrape_db_migration
 <!-- Make configs file importable globally -->
 <!-- add redgrape_db_migration folder as a pip package to get all the config variables -->
@@ -19,10 +24,6 @@ pip install -e .
 
 3.create configs.py file and place all the configurations in it.
 
-
-<!-- install libraries -->
-source /home/sparkuser/venv/bin/activate
-pip install dotenv pyspark==3.5.5
 
 <!-- #Jars to download and place -->
 
