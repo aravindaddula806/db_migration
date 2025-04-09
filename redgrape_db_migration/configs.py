@@ -9,8 +9,8 @@ dest_bucket_name = 's3a://dms-peripheral-applications-data'
 
 base_tgt_path = f"{dest_bucket_name}/borrower_management"
 
-# excluded_tables=['emp_salary_breakup','empl_application_detail','empl_application_detail_n6_backup','empl_application_salary_breakup']
-# excluded_tables=['sessions']
+#excluded_tables=['sessions','emp_salary_breakup','empl_application_detail','empl_application_detail_n6_backup','empl_application_salary_breakup']
+excluded_tables=['person'] #['sessions']
 
 
 log_file_dir = './logs'

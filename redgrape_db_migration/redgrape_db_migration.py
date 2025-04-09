@@ -22,11 +22,18 @@ spark = SparkSession.builder \
     .config("spark.sql.files.maxPartitionBytes",'128MB') \
     .config("spark.sql.parquet.compression.codec","snappy") \
     .config("spark.jars", SPARK_JARS) \
+    .config("spark.memory.offHeap.enabled", "true") \
+    .config("spark.memory.offHeap.size", "2g") \
+    .config("spark.executor.memory", "8g") \
+    .config("spark.memory.fraction", "0.8") \
+    .config("spark.sql.shuffle.partitions", "50") \
+    .config("spark.shuffle.spill", "true") \
     .config("spark.hadoop.fs.s3a.access.key", access_key) \
     .config("spark.hadoop.fs.s3a.secret.key", secret_key) \
     .config("spark.hadoop.mapreduce.fileoutputcommitter.algorithm.version", "2") \
     .getOrCreate()
 
+spark.conf.set("spark.sql.columnNameOfCorruptRecord", "_corrupt_record")
 spark.sparkContext.setLogLevel('ERROR')
 
 print('spark session started')
@@ -57,7 +64,7 @@ def write_into_s3 (schema_name):
     dictionary to store all the tables data into a dictionary# tables_data_dict = {}
     # read each table and store the dataframes into tables_data_dict
     '''
-    # final_table_names = [row.tablename for row in all_tables.collect() if row.tablename not in excluded_tables]
+    #final_table_names = [row.tablename for row in all_tables.collect() if row.tablename not in excluded_tables]
     final_table_names = [row.tablename for row in all_tables.collect() if row.tablename in excluded_tables]
 
     for table_name in final_table_names:
