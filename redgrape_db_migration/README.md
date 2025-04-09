@@ -31,3 +31,7 @@ wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.3.4/hadoop-aw
 wget https://jdbc.postgresql.org/download/postgresql-42.7.5.jar ;
 wget https://repo.maven.apache.org/maven2/org/apache/hadoop/hadoop-common/3.3.4/hadoop-common-3.3.4.jar;
 wget https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.12.262/aws-java-sdk-bundle-1.12.262.jar;
+
+
+<!-- CRONTAB EXPRESSION -->
+05 23 * * 1-6 ~/venv/bin/python ~/redgrape_db_migration/redgrape_db_migration.py
