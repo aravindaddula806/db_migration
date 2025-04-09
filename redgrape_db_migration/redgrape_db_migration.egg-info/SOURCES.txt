@@ -1,0 +1,7 @@
+README.md
+configs.py
+setup.py
+redgrape_db_migration.egg-info/PKG-INFO
+redgrape_db_migration.egg-info/SOURCES.txt
+redgrape_db_migration.egg-info/dependency_links.txt
+redgrape_db_migration.egg-info/top_level.txt

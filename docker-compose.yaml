@@ -1,0 +1,11 @@
+services:
+  spark-container:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: redgrape_db_migration
+    volumes:
+      - ./redgrape_db_migration:/home/sparkuser/redgrape_db_migration  # optional
+    tty: true           # Keeps the container running
+    stdin_open: true    # Allow interactive use
+    restart: always
